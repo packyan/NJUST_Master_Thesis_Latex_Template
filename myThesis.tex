@@ -46,8 +46,10 @@
 \pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-15\p@}}}{}{}
 %\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
 \makeatother
-
-
+\makeatletter
+\renewcommand*\l@section{\@dottedtocline{1}{1.6em}{0.3em}}
+ \renewcommand*\l@subsection{\@dottedtocline{2}{3.2em}{0.3em}}
+\makeatother
 \begin{document}
 
 %%
