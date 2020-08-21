@@ -1,0 +1,173 @@
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%                               Document Template
+%%
+%%  Project Name: njustThesis
+%%  Repository: https://github.com/jiec827/njustThesis
+%%
+%%%%% ------------------------------------------------------------------------------------------
+%% re-written by Jie Cheng <jie.cheng@aliyun.com>
+%% Last-modified: 2015-01-05
+%%
+%% This program can be redistributed and/or modified under the terms
+%% of the GNU Public License, version 2.
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%%%*************************Document Class Declaration*******************************
+%%
+
+\documentclass[UTF8,AutoFakeBold]{sty/njustThesis}% thesis template of the Nanjing Univ of Sci & Tech
+%% Options:
+%% [draftinfo] % show draft version information
+%%%%% --------------------------------------------------------------------------------
+%%
+%%%%**************************Command Define and Settings***************************
+%%
+%目录 chapter 行距
+
+\usepackage{cite}
+\usepackage[njust]{sty/commons}% common settings
+\usepackage{sty/custom}% user defined commands
+%\usepackage[numerical]{bib/gbt7714}
+%%%%% ------------------------------------------------------------------------------------------
+%%%%*********************************Content**********************************************
+%%
+% setting times new roman
+%\usepackage[T1]{fontenc}
+%\usepackage{mathptmx}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+%\usepackage{tocloft}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{-15\p@}}}{}{}
+%\pretocmd{\section}{\addtocontents{toc}{\protect\addvspace{5\p@}}}{}{}
+\makeatother
+
+
+\begin{document}
+
+%%
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%%%*********************************Frontmatter******************************************
+%%
+%% Frontmatter of Title page, Table of contents, Preface chapter.
+%%
+%% >>> Cover
+%%
+\input{tex/cover}
+%%
+%% >>> start frontmatter page No.
+%%
+\frontmatter
+%%
+%% >>> Abstract
+%%
+\input{tex/abstract}
+%%
+%%% >>> List of Content
+%%
+%\clearpage
+
+%%修改点密度
+%\makeatletter
+%%\renewcommand*\l@chapter{\@dottedtocline{1}{0em}{0.0em}}
+%\renewcommand*\l@section{\@dottedtocline{1}{24pt}{34pt}}
+%\renewcommand*\l@subsection{\@dottedtocline{2}{23pt}{23pt}}
+%%\renewcommand*\l@subsubsection{\@dottedtocline{3}{36pt}{36pt}}
+%%\renewcommand*\l@paragraph{\@dottedtocline{4}{48pt}{48pt}}
+%%\renewcommand*\l@subparagraph{\@dottedtocline{5}{60pt}{60pt}}
+%\makeatother
+%
+
+\makeatletter
+\def\@dotsep{1}%就在这儿改，把2改成其他什么，默认是4.5，就是点之间距离为4.5mu
+\makeatother
+%这里使用tocloft包提供的命令：\cftbeforeXskip 这里的X可以用chap, sec等来替代，表示章，节的上部距离。 如
+
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents% contents catalog
+}
+
+
+
+%\phantomsection
+%\addcontentsline{toc}{chapter}{目\NJUSTspace 录}
+% 目录是否参与编号
+
+%% list figures and tables sperately
+%\listoffigures%   figures catalog
+%\addcontentsline{toc}{chapter}{插图目录}
+%\listoftables%    tables catalog
+%\addcontentsline{toc}{chapter}{表格目录}
+% list figures and tables together
+%\listoffiguresandtables
+%\addcontentsline{toc}{chapter}{图表目录}
+%%
+% {\centering\printnomenclature}% nomenclature catalog
+% \addcontentsline{toc}{chapter}{术语表}
+%%
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%%%*********************************Mainmatter******************************************
+%%
+%% Main topics.
+\mainmatter
+%%
+%%% >>> Main Contents
+%%
+
+\input{tex/introduction}%
+
+\input{tex/chap2}%
+\input{tex/chap3}%
+\input{tex/chap4}%
+\chapter{sdddd}
+\input{tex/future}
+\input{tex/thanks}
+
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%%%*********************************Appendix********************************************
+%%
+%% Some subordinate chapters.
+%\input{tex/appendix}%
+%%%%% ------------------------------------------------------------------------------------------
+%%
+%%%%********************************Backmatter*******************************************
+%%
+%% Matters of Bibliography, Glossary, Index.
+\backmatter
+%%
+%%% >>> Acknowledgements
+%%
+%%
+%%% >>> Bibliography
+%%
+%\bibliographystyle{GBT7714-2005}
+%\bibliographystyle{NJUST_GBT7714-2005NLang_Upp}
+
+%
+%%
+%%% >>> Publications
+%%
+%\clearpage
+
+
+\cleardoublepage
+\phantomsection
+\addtocontents{toc}{\vspace{-15pt}}
+\addcontentsline{toc}{chapter}{参考文献} %向目录中添加条目，以章的名义
+{\centering  \bibliography{bib/myThesisRefs.bib} }
+
+\input{tex/publications}
+%%
+%%% >>> Resume
+%%
+%%
+\end{document}
+%%%%% ------------------------------------------------------------------------------------------

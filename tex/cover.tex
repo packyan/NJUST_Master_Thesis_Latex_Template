@@ -1,0 +1,61 @@
+%
+%%% >>> Title Page
+%%
+%%
+%%%%********************** Chinese Title Page ****************************************
+%%
+  \classification{}
+  \confidential{}
+  \UDC{}
+%% 标题格式 \title[short title for headers]{Long title of thesis}
+  \title[基于某某的某技术研究]{基于某某的某技术研究}
+  \titleUpp{基于某某的某技术研究}
+  \titleLow{}
+  %\xeCJKsetup{AutoFakeBold=true,AutoFakeSlant=true}
+  \author{李四四}
+  \advisor{王五五}
+  \advisortitle{教授}
+  \degree{某学硕士}
+  \major{{控制理论与控制工程}}
+  \interest{{计算机图形学}}
+  \school{南京理工大学}
+  \submitdate{2020年12月}
+  \incoverdate{2021年3月}
+  %
+ % \titleBackbone{南\\京\\理\\工\\大\\学\\硕\\士\\学\\位\\论\\文\\模\\板}
+ % \schoolBackbone{南\\京\\理\\工\\大\\学}
+ 
+ \titleBackbone{ }%\\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\}
+ \schoolBackbone{ }% \\ \\ \\ \\ \\ }
+%%
+%%%%********************** English Title Page ****************************************
+%%
+  \englishtitle{Dissertation template of Nanjing University of Science and Technology}
+  \englishauthor{Sisi Li}
+  \englishadvisor{Wuwu Wang}
+  \englishinstitute{Nanjing University of Science \& Technology}
+  \englishdate{December, 2020}
+  \englishdegree{Dissertation}
+%%
+%%%%********************** Generate CHN & Eng Title ***********************************
+%%%
+%%
+\maketitle
+%%
+\makeincovertitle
+%%
+\makeenglishtitle
+%% make statement page
+\makeatletter
+\cleardoublepage
+\thispagestyle{empty}
+\begin{center}
+\input{tex/statement}
+\end{center}
+\clearpage
+\if@twoside
+  \thispagestyle{empty}
+  \cleardoublepage
+\fi
+ \makeatother
+%%%%*********************************** END *******************************************
